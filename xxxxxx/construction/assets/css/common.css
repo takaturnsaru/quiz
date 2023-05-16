@@ -1,0 +1,47 @@
+body{
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+img{
+  width: 100%;
+}
+
+.inner{
+  max-width: 1200px;
+  width: calc(100% - 24px);
+  margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+.top{
+  height: 900px;
+}
+
+.fadeIn{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: opacity 0.5s, visibility .5s, transform .5s;
+}
+
+.fadeInOn{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+
+
+@media screen and (min-width:768px){
+  body{
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:1200px){
+}
+
