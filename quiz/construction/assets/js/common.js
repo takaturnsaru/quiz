@@ -1,24 +1,3 @@
-//画像切り替え//
-$(function() {
-  var $elem = $('.image-switch');
-  var sp = '_sp.';
-  var pc = '_pc.';
-  var replaceWidth = 768;
-
-  function imageSwitch() {
-    var windowWidth = parseInt(window.innerWidth);
-    $elem.each(function() {
-      var $this = $(this);
-      if(windowWidth >= replaceWidth) {
-        $this.attr('src', $this.attr('src').replace(sp, pc));
-      } else {
-        $this.attr('src', $this.attr('src').replace(pc, sp));
-      }
-    });
-  }
-  imageSwitch();
-});
-
 //fade-in//
 $(function () {
   $(window).scroll(function () {
@@ -33,3 +12,47 @@ $(function () {
     });
   });
 });
+
+const question = document.getElementById('question');
+const btns = document.querySelectorAll('.choice');
+let quizzIndex = 0;
+
+const quizzes = [
+  {
+    question: 'Q1',
+    choices: ['a', 'b', 'c', 'd'],
+    answer: 'c'    
+  },  
+  {
+    question: 'Q2',
+    choices: ['d', 'e', 'f', 'g'],
+    answer: 'e'    
+  },  
+  {
+    question: 'Q3',
+    choices: ['h', 'i', 'j', 'k'],
+    answer: 'k'    
+  },  
+];
+
+function quizSet() {
+  question.textContent = quizzes[quizzIndex].question;
+  for(let i = 0; i < btns.length; i++){
+    btns[i].textContent = quizzes[quizzIndex].choices[i];
+  }
+}
+
+quizSet();
+
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(btn.textContent === quizzes[quizzIndex].answer){
+      btn.classList.add('correct');
+    }else{
+      btn.classList.add('lose');
+    }
+    quizSet();
+  })
+})
+
+
