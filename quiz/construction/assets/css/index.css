@@ -73,7 +73,7 @@ a{
 
 .choice.correct,
 .choice.lose{
-  z-index: 998;
+  z-index: 910;
 }
 
 .choice.correct::before{
@@ -85,7 +85,7 @@ a{
   font-size: 68px;
   content: "\025ce";
   color: red;
-  z-index: 999;
+  z-index: 900;
 }
 
 .choice.lose::before{
@@ -97,7 +97,7 @@ a{
   font-size: 68px;
   content: "\02715";
   color: blue;
-  z-index: 999;
+  z-index: 900;
 }
 
 #next-btn{
@@ -131,6 +131,7 @@ a{
   text-align: center;
   border-radius: 30px;
   padding: 60px 20px;
+  z-index: 920;
 }
 
 .text{
@@ -150,13 +151,16 @@ a{
   color: #fff;
 }
 
-#overlay.hidden{
+#overlay.hidden,
+#next-btn.hidden{
   display: none;
 }
 
 .result.hidden{
   top: -200%;
 }
+
+
 
 
 
