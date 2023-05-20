@@ -20,7 +20,8 @@ const redoBtn = document.getElementById('redo-btn');
 const resultContent = document.getElementById('result-content');
 let quizIndex = 0;
 let correctIndex = 0;
-let  quizNum= 0;
+let quizNum = 0;
+
 
 const quizzes = [
   {
@@ -70,10 +71,16 @@ const quizzes = [
   },  
 ];
 
+let len = quizzes.length - 1;
+
 function quizSet() {
-  question.textContent = quizzes[quizIndex].question;
+  let num = Math.floor(Math.random() * len);
+  let j = quizzes[len];
+  quizzes[len] = quizzes[num];
+  quizzes[num] = j;
+  question.textContent = quizzes[len].question;
   for(let i = 0; i < btns.length; i++){
-    btns[i].textContent = quizzes[quizIndex].choices[i];
+    btns[i].textContent = quizzes[len].choices[i];
   }
 }
 
@@ -81,7 +88,7 @@ quizSet();
 
 btns.forEach(btn => {
   btn.addEventListener('click', () => {
-    if(btn.textContent === quizzes[quizIndex].answer){
+    if(btn.textContent === quizzes[len].answer){
       btn.classList.add('correct');
       correctIndex++;
     }else{
@@ -98,39 +105,28 @@ function classRemove() {
   })
 }
 
-// let len = quizzes.length;
-// console.log(len);
-
-// function quizRandam() {
-//   for(len > 1; len--;){
-//     let num = Math.floor(Math.random() * len);
-//     let k = quizzes[len];
-//     quizzes[len] = quizzes[num];
-//     quizzes[num] = k;
-//   }
-// }
 
 
 
 
 nextBtn.addEventListener('click', () => {
-  if(quizNum === 5){
+  if(quizNum === 4){
     overlay.classList.remove('hidden');
     result.classList.remove('hidden');
-    resultContent.textContent = `${quizNum}問中${correctIndex}問正解でした!!`
+    resultContent.textContent = `5問中${correctIndex}問正解でした!!`
     classRemove();
   }else{
     quizNum++;
-    quizRandam();
-    console.log(quizIndex);
     classRemove();
     nextBtn.classList.add('hidden');
+    len--;
     quizSet();
   }
 })
 
 redoBtn.addEventListener('click', () => {
-  quizIndex = 0;
+  quizNum = 0;
+  len = quizzes.length - 1;
   overlay.classList.add('hidden');
   result.classList.add('hidden');
   nextBtn.classList.add('hidden');
