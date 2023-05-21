@@ -141,7 +141,7 @@ a{
   padding: 60px 20px;
   z-index: 920;
   opacity: 1;
-  transition: 1.5s;
+  transition: .5s;
 }
 
 .text{
