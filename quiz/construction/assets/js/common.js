@@ -22,56 +22,83 @@ const resultContent = document.getElementById('result-content');
 let quizIndex = 1;
 let correctIndex = 0;
 let quizNum = 0;
-let n1 = Math.floor(Math.random() * 99);
-let n2 = Math.floor(Math.random() * 99);
+let n1 = 0
+let n2 = 0
+let n3 = 0
+let n4 = 0
+let rn1 = 0
+let rn2 = 0
+let rn3 = 0
+
+function nSet() {
+  n1 = Math.floor(Math.random() * 99);
+  n2 = Math.floor(Math.random() * 99);
+  n3 = Math.floor(Math.random() * 99);
+  n4 = Math.floor(Math.random() * 99);
+  rn1 = Math.floor(Math.random() * 9) + 1;
+  rn2 = Math.floor(Math.random() * 9) + 1;
+  rn3 = Math.floor(Math.random() * 9) + 1;
+}
+
+
+console.log(n1);
+console.log(n2);
+console.log(n3);
+console.log(n4);
+console.log(rn1);
+console.log(rn2);
+console.log(rn3);
 
 
 const quizzes = [
   {
+    num: nSet(),
     question: `${n1} + ${n2} = ?`,
-    choices: [n1 + n2, n1 + n2 + 2, n1 + n2 + 1, n1 + n2 - 3],
+    choices: [n1 + n2, n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2 - rn3],
     answer: n1 + n2    
   },  
   {
-    question: '35 - 7 = ?',
-    choices: ['30', '25', '18', '28'],
-    answer: '28'    
+    num: nSet(),
+    question: `${n1} + ${n2} = ?`,
+    choices: [n1 + n2 + rn1, n1 + n2, n1 + n2 + rn2, n1 + n2 - rn3],
+    answer: n1 + n2    
   },  
   {
-    question: '48 - 32 = ?',
-    choices: ['20', '26', '16', '11'],
-    answer: '16'    
+    num: nSet(),
+    question: `${n1} + ${n2} = ?`,
+    choices: [n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2, n1 + n2 - rn3],
+    answer: n1 + n2    
   },  
   {
-    question: '193 - 100 = ?',
-    choices: ['93', '293', '193', '73'],
-    answer: '93'    
+    num: nSet(),
+    question: `${n1} + ${n2} = ?`,
+    choices: [n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2 + rn3, n1 + n2],
+    answer: n1 + n2    
   },  
   {
-    question: '55 + 83 = ?',
-    choices: ['122', '118', '138', '128'],
-    answer: '138'    
-  },  
+    num: nSet(),
+    question: `${n1} + ${n2} + ${n3} = ?`,
+    choices: [n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn2, n1 + n2 + n3 + rn3, n1 + n2 + n3],
+    answer: n1 + n2 + n3    
+  },   
   {
-    question: '90 + 22 = ?',
-    choices: ['108', '112', '122', '92'],
-    answer: '112'    
-  },  
+    num: nSet(),
+    question: `${n1} + ${n2} + ${n3} = ?`,
+    choices: [n1 + n2 + n3, n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn2, n1 + n2 + n3 + rn3],
+    answer: n1 + n2 + n3    
+  },   
   {
-    question: '134 + 45 - 21 = ?',
-    choices: ['200', '164', '158', '185'],
-    answer: '158'    
-  },  
+    num: nSet(),
+    question: `${n1} + ${n2} + ${n3} = ?`,
+    choices: [n1 + n2 + n3 + rn1, n1 + n2 + n3, n1 + n2 + n3 + rn2, n1 + n2 + n3 + rn3],
+    answer: n1 + n2 + n3    
+  },   
   {
-    question: '9417 - 4524 = ?',
-    choices: ['4893', '4938', '4893', '4398'],
-    answer: '4893'    
-  },  
-  {
-    question: '100 - 31 - 26 = ?',
-    choices: ['53', '64', '44', '43'],
-    answer: '43'    
-  },  
+    num: nSet(),
+    question: `${n1} + ${n2} + ${n3} = ?`,
+    choices: [n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn2, n1 + n2 + n3, n1 + n2 + n3 + rn3],
+    answer: n1 + n2 + n3    
+  },   
 ];
 
 let len = quizzes.length - 1;
@@ -105,7 +132,7 @@ quizSet();
 
 btns.forEach(btn => {
   btn.addEventListener('click', () => {
-    if(btn.textContent === quizzes[len].answer){
+    if(btn.textContent == quizzes[len].answer){
       btn.classList.add('correct');
       clickNone();
       correctIndex++;
@@ -143,8 +170,16 @@ nextBtn.addEventListener('click', () => {
     classRemove();
     nextBtn.classList.add('hidden');
     len--;
+    nSet();
     quizSet();
     clickAuto();
+   console.log(n1);
+    console.log(n2);
+    console.log(n3);
+    console.log(n4);
+    console.log(rn1);
+    console.log(rn2);
+    console.log(rn3);
   }
 })
 
