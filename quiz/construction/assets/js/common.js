@@ -54,37 +54,37 @@ const quizzes = [
   {
     num: nSet(),
     question: `${n1} + ${n2} = ?`,
-    choices: [n1 + n2, n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2 - rn3],
+    choices: [n1 + n2, n1 + n2 + rn1, n1 + n2 + rn1 + rn2, n1 + n2 - rn3],
     answer: n1 + n2    
   },  
   {
     num: nSet(),
     question: `${n1} + ${n2} = ?`,
-    choices: [n1 + n2 + rn1, n1 + n2, n1 + n2 + rn2, n1 + n2 - rn3],
+    choices: [n1 + n2 + rn1, n1 + n2, n1 + n2 + rn1 + rn2, n1 + n2 - rn3],
     answer: n1 + n2    
   },  
   {
     num: nSet(),
     question: `${n1} + ${n2} = ?`,
-    choices: [n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2, n1 + n2 - rn3],
+    choices: [n1 + n2 + rn1, n1 + n2 + rn1 + rn2, n1 + n2, n1 + n2 - rn3],
     answer: n1 + n2    
   },  
   {
     num: nSet(),
     question: `${n1} + ${n2} = ?`,
-    choices: [n1 + n2 + rn1, n1 + n2 + rn2, n1 + n2 + rn3, n1 + n2],
+    choices: [n1 + n2 + rn1, n1 + n2 + rn1 + rn2, n1 + n2 + rn3, n1 + n2],
     answer: n1 + n2    
   },  
   {
     num: nSet(),
     question: `${n1} + ${n2} + ${n3} = ?`,
-    choices: [n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn2, n1 + n2 + n3 + rn3, n1 + n2 + n3],
+    choices: [n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn1 + rn2, n1 + n2 + n3 + rn3, n1 + n2 + n3],
     answer: n1 + n2 + n3    
   },   
   {
     num: nSet(),
     question: `${n1} + ${n2} + ${n3} = ?`,
-    choices: [n1 + n2 + n3, n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn2, n1 + n2 + n3 + rn3],
+    choices: [n1 + n2 + n3, n1 + n2 + n3 + rn1, n1 + n2 + n3 + rn1 + rn2, n1 + n2 + n3 + rn3],
     answer: n1 + n2 + n3    
   },   
   {
