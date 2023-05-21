@@ -22,13 +22,15 @@ const resultContent = document.getElementById('result-content');
 let quizIndex = 1;
 let correctIndex = 0;
 let quizNum = 0;
+let n1 = Math.floor(Math.random() * 99);
+let n2 = Math.floor(Math.random() * 99);
 
 
 const quizzes = [
   {
-    question: '5 + 5 = ?',
-    choices: ['10', '25', '12', '20'],
-    answer: '10'    
+    question: `${n1} + ${n2} = ?`,
+    choices: [n1 + n2, n1 + n2 + 2, n1 + n2 + 1, n1 + n2 - 3],
+    answer: n1 + n2    
   },  
   {
     question: '35 - 7 = ?',
@@ -111,6 +113,8 @@ btns.forEach(btn => {
       btn.classList.add('lose');
       clickNone();
     }
+    console.log(btn.textContent);
+    console.log(quizzes[len].answer);
     nextBtn.classList.remove('hidden');
   })
 })
